@@ -24,7 +24,7 @@ docker run -t --privileged \
   -e DOCKER_USER=user \
   -e DOCKER_PASS=pass \
   -e DOCKER_REGISTRY=quay.io \
-kolla-build:v0.1.3
+quay.io/charter-os/kolla-build:v0.1.3
 ```
 
 # Questions and Contributing
