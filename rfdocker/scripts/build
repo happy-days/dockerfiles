@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+set -e
+
+### constants ##################################################################
+
+this_path="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+### variables ##################################################################
+
+release_name="$(cat "$this_path/release_name")"
+rf_version="$(echo "$release_name" | cut -d '-' -f 1)"
+python_version="$(cat "$this_path/python_version")"
+
+### build ######################################################################
+
+BUILD_ARGS="--file $this_path/../Dockerfile.base \
+--build-arg PYTHON_VERSION=$python_version \
+--build-arg RF_VERSION=$rf_version" \
+BUILD_DIR="$this_path/.." \
+BUILD_NAME="$release_name"
+
+### build and run tests ########################################################
+
+docker build $BUILD_ARGS --tag "quay.io/charter-ctec/robot-docker:$BUILD_NAME" "$BUILD_DIR" 
