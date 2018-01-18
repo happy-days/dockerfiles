@@ -27,7 +27,6 @@ echo "### Pushing image 'rfdocker:$release_name' to registry..."
 docker push "$registry_url:$release_name"
 
 echo "### Replacing image tag in Dockerfile with '$release_name'"
-sed -i "s/FROM robotframework\/rfdocker:.*/FROM robotframework\/rfdocker:$release_name/" "$this_path/../Dockerfile"
 
 echo "### Creating a git tag '$release_name' for release"
 git tag --force --annotate --message "Release $release_name" "$release_name"

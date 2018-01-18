@@ -18,6 +18,5 @@ ENV UNAME="robot" \
 
 ARG RF_VERSION
 ARG PACKAGES="robotframework==$RF_VERSION robotframework-selenium2library robotframework-xvfb"
-# RUN pip install --no-cache-dir "$PACKAGES"=="$RF_VERSION"
-RUN for x in $PACKAGES; do pip install --no-cache-dir "$x"; done
 
+RUN for x in $PACKAGES; do pip install --no-cache-dir "$x"; done
