@@ -22,4 +22,4 @@ BUILD_NAME="$release_name"
 
 ### build and run tests ########################################################
 
-docker build $BUILD_ARGS --tag "quay.io/charter-ctec/robot-docker:$BUILD_NAME" "$BUILD_DIR" 
+docker build $BUILD_ARGS --tag "quay.io/charter-ctec/robot-base:$BUILD_NAME" "$BUILD_DIR" 
