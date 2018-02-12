@@ -1,8 +1,4 @@
-ARG PYTHON_VERSION
-FROM python:"$PYTHON_VERSION"-alpine
-
-RUN apk add --update --no-cache bash sudo su-exec && \
-  rm -rf /var/cache/* /tmp/* /var/log/* ~/.cache
+FROM quay.io/charter-ctec/python-ubuntu-base:latest 
 
 COPY entrypoint /usr/local/sbin/
 
@@ -17,7 +13,7 @@ ENV UNAME="robot" \
     SHELL="/bin/bash"
 
 ARG RF_VERSION
-ARG PACKAGES="robotframework==$RF_VERSION robotframework-selenium2library robotframework-xvfb"
+ARG PACKAGES="robotframework==$RF_VERSION robotframework-sshlibrary robotframework-selenium2library robotframework-xvfb"
 
 RUN for x in $PACKAGES; do pip install --no-cache-dir "$x"; done
 
