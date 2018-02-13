@@ -9,10 +9,11 @@ this_path="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 ### variables ##################################################################
 
 release_version="$(cat "$this_path/release_version")"
+python_version="$(cat "$this_path/python_version")"
 
 ### build ######################################################################
 
-BUILD_ARGS="" \
+BUILD_ARGS="--build-arg PYTHON_VERSION=$python_version " \
 BUILD_DIR="$this_path/.." \
 BUILD_VERSION="$release_version"
 

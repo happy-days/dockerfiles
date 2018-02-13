@@ -1,4 +1,7 @@
-FROM quay.io/charter-ctec/python-ubuntu-base:latest 
+ARG PYTHON_VERSION
+FROM python:"$PYTHON_VERSION"
+
+RUN pip install --upgrade pip
 
 COPY entrypoint /usr/local/sbin/
 

@@ -1,4 +1,6 @@
-FROM quay.io/charter-ctec/python3-ubuntu-base:latest
+ARG PYTHON_VERSION
+FROM python:"$PYTHON_VERSION"
 
-RUN pip3 install --no-cache-dir napalm 
+RUN pip install --upgrade pip \
+    && pip install --no-cache-dir napalm
 
